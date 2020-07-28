@@ -1,2 +1,1 @@
-# Code
-代码
+# Daily_Codes
