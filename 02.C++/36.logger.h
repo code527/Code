@@ -95,4 +95,5 @@ Logger haizei_log;
 
 }
 
+
 #endif
