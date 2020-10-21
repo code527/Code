@@ -9,13 +9,13 @@ class _A():
         self.name = name  
         
 def func():    
-    print 'func() is called!'    
+    print ('func() is called!')    
      
 def func1():    
-    print 'func1() is called!'    
+    print ('func1() is called!')    
     
 def _func():    
-    print '_func() is called!'    
+    print ('_func() is called!')    
         
 def __func():    
-    print '__func() is called!'
+    print ('__func() is called!')

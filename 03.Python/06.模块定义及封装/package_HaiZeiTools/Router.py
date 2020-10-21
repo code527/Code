@@ -5,4 +5,4 @@ class Router:
     def __init__(self):
         pass
     def say(self):
-        print "Used Router!"
+        print ("Used Router!")

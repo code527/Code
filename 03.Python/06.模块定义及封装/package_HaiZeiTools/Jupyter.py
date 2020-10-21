@@ -5,4 +5,4 @@ class Jupyter:
     def __init__(self):
         pass
     def say(self):
-        print "Used Jupyter!"
+        print ("Used Jupyter!")
