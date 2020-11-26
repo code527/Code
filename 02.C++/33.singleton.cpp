@@ -20,6 +20,7 @@ public :
         }
         return instance;
     }
+
 private:
     static HttpServer *instance;
     static std::mutex m_mutex;
