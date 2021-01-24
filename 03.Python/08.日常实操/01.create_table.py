@@ -14,9 +14,10 @@ def create_tables():
       `card_id` varchar(128) NOT NULL COMMENT '卡片id',
   	  `content` varchar(1024) NOT NULL COMMENT '内容json',
   
-  	  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  	  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  	  UNIQUE KEY (`card_id`)
+  	  `created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  	  `modified_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  	  UNIQUE KEY (`card_id`),
+      UNIQUE KEY `uniq_backup_card_content` (`id`, `card_id`) USING HASH
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8 COMMENT = '离线push消息回执统计';
 '''
     
