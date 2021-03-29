@@ -12,12 +12,10 @@ def readIdListFromFile(file):
     try:
         while True:
             line = fp.readline()
-            # print line
             line = line.strip('\r')
             line = line.strip('\n')
             if len(line) == 0:
                 break
-            # idlist.add(int(line))
             idlist.append(line)
     finally:
         fp.close()
@@ -33,18 +31,18 @@ def CRMId2IMId(crmId, type):
     return imid
 
 if __name__ == "__main__":
-    url = 'http://10.250.100.93:19501/addwhitelist'
+    url = 'http://10.89.89.8:19501/addwhitelist'
     idlist = readIdListFromFile("00.txt")
-    print(idlist)
     for id in idlist:
         imid = CRMId2IMId(id, 1)
-        # print(imid)
         postRow = {"traceId":"addwhitelist", "imid":str(imid), "flag":16}
         header_dict = {"Content-Type":"application/json; charset=utf8"}
         rows = json.dumps(postRow)
-        # print(rows)
         r = requests.post(url, data=rows, headers=header_dict)
-        # print(r.text)
-
-
-
+        resp = json.loads(r.text)
+        if resp['code'] == 0:
+            flag = resp['data']['flag']
+            if flag < 16:
+                print("add whitelist failed", "imid:", imid, r.text)
+        else:
+            print("request failed", r.text)

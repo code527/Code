@@ -33,9 +33,8 @@ def CRMId2IMId(crmId, type):
     return imid
 
 if __name__ == "__main__":
-    url = 'http://10.250.100.93:19501/whitelist'
+    url = 'http://10.89.89.8:19501/whitelist'
     idlist = readIdListFromFile("00.txt")
-    print(idlist)
     for id in idlist:
         imid = CRMId2IMId(id, 1)
         # print(imid)
@@ -48,8 +47,9 @@ if __name__ == "__main__":
         if resp['code'] == 0:
             flag = resp['data']['flag']
             if flag < 16:
-                print(imid)
-                print(r.text)
+                print("add whitelist failed", "imid:", imid, r.text)
+        else:
+            print("request failed", r.text)
         
 
 
