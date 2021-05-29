@@ -5,8 +5,8 @@
 	> Created Time: 四  7/18 12:23:17 2019
  ************************************************************************/
 
-#ifndef _10.HASH_TABLE_H
-#define _10.HASH_TABLE_H
+#ifndef _10_HASH_TABLE_H
+#define _10_HASH_TABLE_H
 namespace haizei {
     template<typename T, typename U>
     struct pair {
@@ -31,7 +31,7 @@ namespace haizei {
         }
     };
 
-    template<typename K, typename T, typename HashT = haizei::hash<K>>
+    template<typename K, typename T, typename HashT = haizei::hash<K> >
     class unordered_map {
     public:
         unordered_map(size_t size = 100) : size(size) {
