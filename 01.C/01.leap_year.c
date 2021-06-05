@@ -4,8 +4,8 @@
 	> Mail: 
 	> Created Time: 五  2/ 8 20:39:17 2019
  ************************************************************************/
-# include <stdio.h>
-# include <inttypes.h>
+#include <stdio.h>
+#include <inttypes.h>
 
 int64_t is_leap_year(int64_t n) {
     if ((n % 4 == 0 && n % 100 != 0) || (n % 400 == 0)) {
