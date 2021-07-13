@@ -46,17 +46,19 @@ func main() {
 		fmt.Println(table)
 		if strings.Contains(table, "pet") {
 			tmp := strings.Split(table, "_")
-			for i, v := range tmp {
-				fmt.Println(i, v)
-			}
-
-			if strings.Compare(tmp[1], "table") == 0 {
-				// 删除表名
-				_, err := pool.Exec("drop table " + table)
-				if err != nil {
-					fmt.Println("drop table: ", table, "error: ", err.Error())
+			if len(tmp) >= 2 {
+				for i, v := range tmp {
+					fmt.Println(i, v)
 				}
-				fmt.Println("drop table ", table)
+
+				if strings.Compare(tmp[1], "20210703") <= 0 {
+					// 删除表名
+					_, err := pool.Exec("drop table " + table)
+					if err != nil {
+						fmt.Println("drop table: ", table, "error: ", err.Error())
+					}
+					fmt.Println("drop table ", table)
+				}
 			}
 		}
 	}
