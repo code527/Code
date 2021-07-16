@@ -51,7 +51,7 @@ func main() {
 					fmt.Println(i, v)
 				}
 
-				if strings.Compare(tmp[1], "20210703") <= 0 {
+				if strings.Compare(tmp[1], "20210704") <= 0 {
 					// 删除表名
 					_, err := pool.Exec("drop table " + table)
 					if err != nil {
